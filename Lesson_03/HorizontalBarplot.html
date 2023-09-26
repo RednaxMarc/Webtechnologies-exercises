@@ -7,31 +7,36 @@
 
     <style>
         div.plotwrap{
-            border-left: solid grey;
-            border-bottom: solid gray;
+            border-left: solid grey 2px;
+            border-bottom: solid grey 2px;
             padding: 1em;
-            margin-left: 2em;
-            margin-right: 25%;
+            margin: 15px 50px;
+            position: relative;
+            display: inline-block;
         }
 
         div.x-axis-label{
             position: absolute;
-            top: 20%; 
-            left: 1em;
+            top: 50%; 
+            left: -25px;
         }
         div.y-axis-label{
             position: absolute;
-            top: 40%;
-            left: 40%;
+            bottom: -25px;
+            left: 50%;
         }
 
         div.scale{
-            border: solid 1px;
+            box-sizing: border-box;
+            border: solid #ddd 1px;
             margin: 1em;
+            width: 500px;
         }
 
         div.bar{
-            border: solid 2px;
+            box-sizing: border-box;
+            background: lightblue;
+            border: solid 1px;
             text-align: right;
         }
     </style>
