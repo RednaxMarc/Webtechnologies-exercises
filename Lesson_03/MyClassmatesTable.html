@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        caption{
+            text-decoration: overline underline;
+        }
+      
+        th, td{
+            border: solid 1px black;
+            padding: 1em;
+        }
+
+       tr td:first-child{
+        color: red;
+       }
+       tr td:nth-child(2){
+        color: blue;
+       }
+       tr td:nth-child(3){
+        color: green;
+       }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>My Classmates</caption>
+        <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>Last Name</b></th>
+                <th><b>Age</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Xander</td>
+                <td>Marcle</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Sheldon</td>
+                <td>Cooper</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2"><b>Total</b></th>
+                <th><b>49</b></th>
+            </tr>
+        </tfoot>    
+    </table>
+</body>
+</html>
