@@ -1,5 +1,5 @@
 <?php
-    $base = $argv[1] ?? 10;
+    $base = $argv[1];
     for ($row = 1; $row <= $base; $row += 1){
         for ($spaces = 1; $spaces <= $base - $row ; $spaces += 1){
             echo " ";
