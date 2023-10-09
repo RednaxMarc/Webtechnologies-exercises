@@ -1,13 +1,9 @@
 <?php
-    $width = 
-    $height = $argv[1];
-    $mylist = range (1,$argv[1]);
-    
-    for (isset($argv[1]) == TRUE; $height > 0; $height -= 0){
-        while($width != $argv[1]){
+    $base = $argv[1];
+    for ($row = 1; $row <= $base; $row += 1){
+        for ($asterisk = 1; $asterisk <= $row; $asterisk += 1){
             echo "*";
-            $width
         }
-        
+        echo "\n";
     }
 ?>
