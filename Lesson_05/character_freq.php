@@ -5,7 +5,7 @@
 
     $total = count($array);
     $occurences = array_count_values($array);
-    echo "STATS";
+    echo "STATS\n";
     foreach ($occurences as $character => $times){
         $prev = $times/$total *100;
         echo "$character: $times occurences -> $prev %\n";
