@@ -4,7 +4,7 @@
     $FWD_strand = str_split($oriDNA_modi);
     #print_r($FWD_strand);
     $invalid = [];
-
+    
     echo "comp.: ";
     foreach ($FWD_strand as $nt){
         if ($nt == "A" || $nt == "a"){
@@ -23,7 +23,7 @@
             array_push($invalid, $nt);
         }
     }
-    echo "\n";
+    echo "\n \n";
     #print_r($invalid);
     $occurences = array_count_values($invalid);
     #print_r($occurences);
