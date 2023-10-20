@@ -24,17 +24,33 @@
 
     <?php
         if(isset($_POST['submit'])){
-            echo "Dear, " . $_POST['firstname'];
-            echo "<br>";
-            if($_POST['age']>=21){
-                echo "Acces granted";  
+            if(empty($_POST['firstname'])){
+                echo "Please, provide your firstname...";
+                echo "<br>";
+            }
+            if(empty($_POST['lastname'])){
+                echo "Please, provide your lastname...";
+                echo "<br>";
+            }
+            if(empty($_POST['age'])){
+                echo "Please, provide your age...";
+                echo "<br>";
             }
             else{
-                echo "Acces denied...";
+                echo "Dear, " . $_POST['firstname'] . ' ' .  $_POST['lastname'];
                 echo "<br>";
-                echo "You should wait " . 21-$_POST['age'] . " year(s)...";
+                if($_POST['age']>=21){
+                    echo "Acces granted";  
+                }
+                else{
+                    echo "Acces denied...";
+                    echo "<br>";
+                    echo "You should wait " . 21-$_POST['age'] . " year(s)...";
+                }
             }
         }
+        echo "<br>";
+        #print_r($_POST);
     ?>
 </body>
 </html>
