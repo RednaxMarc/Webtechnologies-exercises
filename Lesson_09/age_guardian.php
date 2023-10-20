@@ -6,7 +6,7 @@
     <title>Guardian of age</title>
 </head>
 <body>
-    <h3>Please, enter your data personal info here: </h3>
+    <h3>Please, enter your personal info here: </h3>
     <form action="#" method="POST">
         <!--Names input-->
         Firstname: <input type="text" name="firstname">
@@ -21,7 +21,7 @@
         <input type="submit" name="submit" value="Submit">
         <br>
     </form>
-
+    <hr>
     <?php
         if(isset($_POST['submit'])){
             if(empty($_POST['firstname'])){

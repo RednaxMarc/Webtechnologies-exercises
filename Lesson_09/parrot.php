@@ -18,7 +18,7 @@
         <input type="hidden" value="<?php echo $sentence ?>" name="sentence">
         <input type="submit" value="submit" name="submit">
     </form>
-
+    <hr>
     <?php
 
         if(isset($_POST['submit'])){
