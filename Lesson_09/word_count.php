@@ -5,23 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word count</title>
 </head>
-<?php
-    $text=$_POST['text'];
-?>
 <body>
     <h2>Word calculator</h2>
     <form action="#" method="POST">
-        Enter text: <br><textarea name="text" id="" cols="50" rows="5"></textarea><br>
+        Enter text: <br><textarea name="textfield" cols="50" rows="5"></textarea><br>
+        Lines<input type="checkbox" name="lines" checked>
+        Words<input type="checkbox" name="words" checked>
+        Characters<input type="checkbox" name="chars" checked>
         <input type="submit" value="Calculate" name="submit"> 
     </form>
 
     <hr>
 
     <?php
-        echo "Entered Text: " . $text . "<br>";
-        echo "Number of lines: " . "<br>";
-        echo "Number of words: " . str_word_count($text) . "<br>"; 
-        echo "Number of characters: " . strlen($text) . "<br>";
+        // Check if form is submitted and make the table
+        if(isset($_POST['submit'])){
+            $content=$_POST['textfield'];
+            echo "Entered Text: " . $content . "<br>";
+            $lines = explode("\n", $content);
+            #print_r($lines);
+
+            $linecount=count($lines);
+            $wordcount =0 ;
+            $charcount = 0;
+
+            foreach($lines as $line){
+                $wordcount += str_word_count($line);
+                $charcount =+ strlen($line);
+            }
+            echo "<table>";
+            if(isset($_POST['lines'])){
+                echo "<tr>";
+                    echo "<th>Lines</th>";
+                    echo "<td>$linecount</td>";
+                echo "</tr>";
+            }
+            if(isset($_POST['words'])){
+                echo "<tr>";
+                    echo "<th>Words</th>";
+                    echo "<td>$wordcount</td>";
+                echo "</tr>";
+            }
+            if(isset($_POST['chars'])){
+                echo "<tr>";
+                    echo "<th>Characters</th>";
+                    echo "<td>$charcount</td>";
+                echo "</tr>";
+            }                      
+            echo "</table>";
+        }
     ?>
 </body>
 </html>
