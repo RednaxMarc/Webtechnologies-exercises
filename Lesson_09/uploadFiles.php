@@ -15,26 +15,27 @@
             print_r($_POST);
 
             // Acces the file infomration
-            echo "<pre>";
-                print_r($_FILES);
-            echo "</pre>";
+            // echo "<pre>";
+                // print_r($_FILES);
+            // echo "</pre>";
 
             // Acces the contents with method 1 (as an array)
-            $contents = file($_FILES['uploaded_file']['tmp_name']);
-            print_r($contents);
+            // $contents = file($_FILES['uploaded_file']['tmp_name']);
+            // print_r($contents);
 
             // Acces the contents with method 2 (as an array)
-            $contents = file_get_contents($_FILES['uploaded_file']['tmp_name']);
-            $lines = explode("\n", $contents);
-            print_r($lines);
+            // $contents = file_get_contents($_FILES['uploaded_file']['tmp_name']);
+            // $lines = explode("\n", $contents);
+            // print_r($lines);
 
             // Acces the contents with method 2 (as a string)
             $contents = file_get_contents($_FILES['uploaded_file']['tmp_name']);
-            print_r($contents);
+            print_r($_FILES);
+            echo "$contents";
 
-            echo "<pre>";
-                print_r($lines);
-            echo "</pre>";
+            // echo "<pre>";
+                // print_r($lines);
+            // echo "</pre>";
         }
     ?>
 
