@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Oefening wikipedia FASTA</title>
+
+   <style>
+    .wrap{
+        position: relative;
+    }
+    .leftTable{
+        border-right: solid 1px steelblue;
+        height: 100%;
+        width: 10em;
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+    .leftTable ol{
+        list-style-type: none;
+        padding-left: 0em;
+    } 
+    .leftTable li{
+        padding: 0.25em;
+    }
+    .content{
+        margin-left: 11em;
+        padding-left: 0.5em;
+    }
+    .toc{
+        border: solid 1px gray;
+        display: inline-block;
+        padding: 0.5em;
+        background-color:lightgray ;
+    }
+    .toc p{
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+    }
+    h1, h2{
+        border-bottom: 1px solid gray;
+    }
+    pre{
+        border: solid 1px gray;
+        background-color: lightgray;
+        display: inline-block;
+        padding: 0.5em;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    table td{
+        border: solid 1px gray;
+        padding: 0.25em;
+    }
+    table th{
+        border: solid 1px gray;
+        background-color: lightgrey;
+        padding: 0.25em;
+    }
+   </style>
+</head>
+<body>
+    <div class="wrap">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<div class="leftTable">
+    <ol>
+        <li>
+           <a href="#">Main page</a>
+        </li>
+        <li>
+           <a href="#">Contents</a>
+        </li>
+        <li>
+           <a href="#">Featured content</a>
+        </li>
+        <li>
+           <a href="#">Current events</a>
+        </li>
+        <li>
+           <a href="#">Random article</a>
+        </li>
+        <li>
+           <a href="#">Donate to Wikipedia</a>
+        </li>
+        <li>
+           <a href="#">Wikipedia store</a>
+        </li>
+     </ol>
+</div>
+
+<div class="content">
+  
+<h1>FASTA format</h1>
+
+<p> In <a
+href="https://en.wikipedia.org/wiki/Bioinformatics">bioinformatics</a>, FASTA
+format is a text-based <a
+href="https://en.wikipedia.org/wiki/File_format">format</a> for representing
+either <a href="https://en.wikipedia.org/wiki/Nucleotide_sequence">nucleotide
+sequences</a> or peptide sequences, in which nucleotides or <a
+href="https://en.wikipedia.org/wiki/Amino_acid">amino acids</a> are represented
+using single-letter codes. The format also allows for sequence names and
+comments to precede the sequences. The format originates from the <a
+href="https://en.wikipedia.org/wiki/FASTA">FASTA</a> software package, but has
+now become a standard in the field of bioinformatics.  </p>
+
+<p> The simplicity of FASTA format makes it easy to manipulate and parse
+sequences using text-processing tools and <a
+href="https://en.wikipedia.org/wiki/Scripting_language">scripting languages</a>
+like <a href="https://en.wikipedia.org/wiki/R_(programming_language)">R</a>, <a
+href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>,
+<a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a>,
+and <a href="https://en.wikipedia.org/wiki/Perl">Perl</a>.
+</p>
+
+<div class="toc">
+<p>Contents</p>
+<ol>
+   <li>
+      <a href="#history">History</a>
+   </li>
+   <li>
+      <a href="#description-line">Description Line</a>
+      <ol>
+         <li><a href="#sequence-representation">Sequence Representation</a></li>
+      </ol>
+   </li>
+   <li>
+      <a href="#sequence-identiefiers">Sequence Identifiers</a>
+      <ol>
+         <li><a href="#comperssion">Compression</a></li>
+         <li><a href="#file-extension">File Extension</a></li>
+      </ol>
+   </li>
+   <li>
+      <a href="#see-also">See Also</a>
+   </li>
+   <li>
+      <a href="#references">References</a>
+   </li>
+</ol>
+</div>
+
+<h2>History <small>[ <a href="?edit">edit</a> ]</small></h2>
+
+<p>
+The original FASTA/Pearson format is described in the documentation for the
+FASTA suite of programs. It can be downloaded with any free distribution of
+FASTA (see fasta20.doc, fastaVN.doc or fastaVN.me—where VN is the Version
+Number).
+</p>
+
+<p>
+A sequence in FASTA format is represented as a series of lines, each of which
+should be no longer than 120 characters and usually do not exceed 80
+characters. This probably was to allow for preallocation of fixed line sizes in
+software: at the time most users relied on DEC VT (or compatible) terminals
+which could display 80 or 132 characters per line. Most people preferred the
+bigger font in 80-character modes and so it became the recommended fashion to
+use 80 characters or less (often 70) in FASTA lines. Also, the width of a
+standard printed page is 70 to 80 characters (depending on the font).
+</p>
+
+<p>
+The first line in a FASTA file starts either with a ">" (greater-than) symbol
+or, less frequently, a ";" (semicolon) and was taken as a comment. Subsequent
+lines starting with a semicolon would be ignored by software. Since the only
+comment used was the first, it quickly became used to hold a summary
+description of the sequence, often starting with a unique library accession
+number, and with time it has become commonplace use to always use ">" for the
+first line and to not use ";" comments (which would otherwise be ignored).
+</p>
+
+<p>
+Following the initial line (used for a unique description of the sequence) is
+the actual sequence itself in standard one-letter code. Anything other than a
+valid code would be ignored (including spaces, tabulators, asterisks, etc...).
+Originally it was also common to end the sequence with an "*" (asterisk)
+character (in analogy with use in PIR formatted sequences) and, for the same
+reason, to leave a blank line between the description and the sequence.
+</p>
+
+<p>
+A few sample sequences:
+
+<pre><div class="gray">;LCBO - Prolactin precursor - Bovine
+; a sample sequence in FASTA format
+MDSKGSSQKGSRLLLLLVVSNLLLCQGVVSTPVCPNGPGNCQVSLRDLFDRAVMVSHYIHDLSS
+EMFNEFDKRYAQGKGFITMALNSCHTSSLPTPEDKEQAQQTHHEVLMSLILGLLRSWNDPLYHL
+VTEVRGMKGAPDAILSRAIEIEEENKRLLEGMEMIFGQVIPGAKETEPYPVWSGLPSLQTKDED
+ARYSAFYNLLHCLRRDSSKIDTYLKLLNCRIIYNNNC*</div>
+
+>MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken
+<div class="gray">ADQLTEEQIAEFKEAFSLFDKDGDGTITTKELGTVMRSLGQNPTEAELQDMINEVDADGNGTID
+FPEFLTMMARKMKDTDSEEEIREAFRVFDKDGNGYISAAELRHVMTNLGEKLTDEEVDEMIREA
+DIDGDGQVNYEEFVQMMTAK*</div>
+
+>gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]
+<div class="gray">LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLVEWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG
+LLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL
+GLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX
+IENY</div>
+</pre>
+</p>
+
+<p>
+A multiple sequence FASTA format would be obtained by concatenating several
+single sequence FASTA files. This does not imply a contradiction with the
+format as only the first line in a FASTA file may start with a ";" or ">",
+hence forcing all subsequent sequences to start with a ">" in order to be taken
+as different ones (and further forcing the exclusive reservation of ">" for the
+sequence definition line). Thus, the examples above may as well be taken as a
+multisequence file if taken together.
+</p>
+
+<h2>Description line <small>[ <a href="?edit">edit</a> ]</small></h2>
+
+
+<p>
+The description line (defline) or header line, which begins with '>', gives a
+name and/or a unique identifier for the sequence, and may also contain
+additional information. In a deprecated practice, the header line sometimes
+contained more than one header, separated by a ^A (Control-A) character.
+<p>
+</p>
+In the original Pearson FASTA format, one or more comments, distinguished by a
+semi-colon at the beginning of the line, may occur after the header. Some
+databases and bioinformatics applications do not recognize these comments and
+follow the <a href="https://www.ncbi.nlm.nih.gov/blast/fasta.shtml">NCBI FASTA
+specification</a>. An example of a multiple sequence FASTA file follows:
+</p>
+
+<pre>
+>SEQUENCE_1
+<div class="gray">MTEITAAMVKELRESTGAGMMDCKNALSETNGDFDKAVQLLREKGLGKAAKKADRLAAEG
+LVSVKVSDDFTIAAMRPSYLSYEDLDMTFVENEYKALVAELEKENEERRRLKDPNKPEHK
+IPQFASRKQLSDAILKEAEEKIKEELKAQGKPEKIWDNIIPGKMNSFIADNSQLDSKLTL
+MGQFYVMDDKKTVEQVIAEKEKEFGGKIKIVEFICFEVGEGLEKKTEDFAAEVAAQL</div>
+>SEQUENCE_2
+<div class="gray">SATVSEINSETDFVAKNDQFIALTKDTTAHIQSNSLQSVEELHSSTINGVKFEEYLKSQI
+ATIGENLVVRRFATLKAGANGVVNGYIHTNGRVGVVIAAACDSAEVASKSRDLLRQICMH</div></pre>
+
+<h3>Sequence representation<small>[ <a href="?edit">edit</a> ]</small></h3>
+
+<p>
+After the header line and comments, one or more lines may follow describing the
+sequence: each line of a sequence should have fewer than 80 characters.
+Sequences may be protein sequences or nucleic acid sequences, and they can
+contain gaps or alignment characters (see sequence alignment). Sequences are
+expected to be represented in the standard IUB/IUPAC amino acid and nucleic
+acid codes, with these exceptions: lower-case letters are accepted and are
+mapped into upper-case; a single hyphen or dash can be used to represent a gap
+character; and in amino acid sequences, U and * are acceptable letters (see
+below). Numerical digits are not allowed but are used in some databases to
+indicate the position in the sequence.
+</p>
+
+The nucleic acid codes supported are:<sup><a href="#ref-1">[1]</a><a href="ref-2">[2]</a></sup>
+
+<table>
+<thead>
+   <tr>
+      <th>Nucleic Acid Code</th>
+      <th>Meaning</th>
+      <th>Mnemonic</th>
+      </tr>
+</thead>
+<tbody>
+   <tr>
+      <td>A</td>
+      <td>A</td>
+      <td><a href="https://en.wikipedia.org/wiki/Adenine" title="Adenine"><b>A</b>denine</a></td>
+   </tr>
+   <tr>
+      <td>C</td>
+      <td>C</td>
+      <td><a href="https://en.wikipedia.org/wiki/Cytosine" title="Cytosine"><b>C</b>ytosine</a></td>
+   </tr>
+   <tr>
+      <td>G</td>
+      <td>G</td>
+      <td><a href="https://en.wikipedia.org/wiki/Guanine" title="Guanine"><b>G</b>uanine</a></td>
+   </tr>
+   <tr>
+      <td>T</td>
+      <td>T</td>
+      <td><a href="https://en.wikipedia.org/wiki/Thymine" title="Thymine"><b>T</b>hymine</a></td>
+   </tr>
+   <tr>
+      <td>U</td>
+      <td>U</td>
+      <td><a href="https://en.wikipedia.org/wiki/Uracil" title="Uracil"><b>U</b>racil</a></td>
+   </tr>
+   <tr>
+      <td>R</td>
+      <td>A or G</td>
+      <td><a href="https://en.wikipedia.org/wiki/Purine" title="Purine">pu<b>R</b>ine</a></td>
+   </tr>
+   <tr>
+      <td>Y</td>
+      <td>C, T or U</td>
+      <td><a href="https://en.wikipedia.org/wiki/Pyrimidine" title="Pyrimidine">p<b>Y</b>rimidines</a></td>
+   </tr>
+   <tr>
+      <td>K</td>
+      <td>G, T or U</td>
+      <td>bases which are <a href="https://en.wikipedia.org/wiki/Ketone" title="Ketone"><b>K</b>etones</a></td>
+   </tr>
+   <tr>
+      <td>M</td>
+      <td>A or C</td>
+      <td>bases with <a href="https://en.wikipedia.org/wiki/Amino" title="Amino">a<b>M</b>ino groups</a></td>
+   </tr>
+   <tr>
+      <td>S</td>
+      <td>C or G</td>
+      <td><b>S</b>trong interaction</td>
+   </tr>
+   <tr>
+      <td>W</td>
+      <td>A, T or U</td>
+      <td><b>W</b>eak interaction</td>
+   </tr>
+   <tr>
+      <td>B</td>
+      <td>not A (i.e. C, G, T or U)</td>
+      <td><b>B</b> comes after A</td>
+   </tr>
+   <tr>
+      <td>D</td>
+      <td>not C (i.e. A, G, T or U)</td>
+      <td><b>D</b> comes after C</td>
+   </tr>
+   <tr>
+      <td>H</td>
+      <td>not G (i.e., A, C, T or U)</td>
+      <td><b>H</b> comes after G</td>
+   </tr>
+   <tr>
+      <td>V</td>
+      <td>neither T nor U (i.e. A, C or G)</td>
+      <td><b>V</b> comes after U</td>
+   </tr>
+   <tr>
+      <td>N</td>
+      <td>A C G T U</td>
+      <td><b>N</b>ucleic acid</td>
+   </tr>
+   <tr>
+      <td>-</td>
+      <td>gap of indeterminate length</td>
+      <td></td>
+   </tr>
+</tbody>
+</table>
+
+<h2 id="sequence-Identifiers">Sequence identiefiers <small>[ <a href="?edit">edit</a> ]</small></h2>
+<h3 id="compression">Compression <small>[ <a href="?edit">edit</a> ]</small></h3>
+<h3 id="file-extension">File extension <small>[ <a href="?edit">edit</a> ]</small></h3>
+<h2 id="see-also">See also <small>[ <a href="?edit">edit</a> ]</small></h2>
+<h2 id="references">References <small>[ <a href="?edit">edit</a> ]</small></h2>
+
+</div>
+</body>
+</html>

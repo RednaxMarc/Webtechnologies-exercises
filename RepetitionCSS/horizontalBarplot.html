@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-plot=1.0">
+    <title>Horizontal barplot</title>
+    <style>
+        .axes{
+            border-bottom: solid 2px black;
+            border-left: solid 2px black;
+            margin-left: 1em;
+            width: 500px;
+            padding: 1em;
+            position: relative;
+        }
+        .plotWrap{
+            border: solid 1px lightgrey;
+            margin: 1em;
+        }
+        .plot{
+            border: solid 1px black;
+            background-color: lightblue;
+            text-align: right;
+        }
+        .xLabel{
+            margin-left: 0px;
+            top: 22%;
+            position: absolute;
+        }
+        .yLabel{
+            margin-left: 250px;
+            top: 40%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Horizontal barplot</h1>
+
+    <div class="xLabel">X</div>
+    <div class="yLabel">Y</div>
+
+    <div class="axes">
+        <div class="plotWrap">
+            <div class="plot" style="width: 75%;">75%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="width: 25%;">25%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="width: 50%;">50%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="width: 100%;">100%</div>
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>

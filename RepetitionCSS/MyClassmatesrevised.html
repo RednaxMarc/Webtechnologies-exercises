@@ -13,15 +13,19 @@
             text-decoration: underline overline;
         }
 
-        td, th{
-            text-align: left;
-            padding: 10px;
-            border: solid 1px black;
+        td:not(:last-child), th:not(:last-child){
+            border-right: solid 1px black;
         }
-        td:nth-child(1) {color: red;}
-        td:nth-child(2) {color: blue;}
-        td:nth-child(3) {color: green;}
-        tfoot th:nth-child(1){text-align: center;color: purple;}
+        td, th{
+            text-align: center;
+            padding: 10px;
+        }
+        tbody>tr:nth-child(2n+1){
+            background: lightgrey;
+        }
+        table tr:hover{
+            background: grey;
+        }
     </style>
 </head>
 <body>

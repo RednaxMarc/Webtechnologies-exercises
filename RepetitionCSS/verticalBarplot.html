@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-plot=1.0">
+    <title>Vertical barplot</title>
+    <style>
+        .axes{
+            border-bottom: solid 2px black;
+            border-left: solid 2px black;
+            margin-left: 1em;
+            padding: 1em;
+            display: inline-block;
+        }
+        .plotWrap{
+            border: solid 1px lightgrey;
+            margin: 1em;
+            width: 3em;
+            height: 250px;
+            display: inline-block;
+            position: relative;
+        }
+        .plot{
+            border: solid 1px black;
+            background-color: lightblue;
+            text-align: center;
+            bottom: 0px;
+            width: 3em;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vertical barplot</h1>
+
+    <div class="axes">
+        <div class="plotWrap">
+            <div class="plot" style="height: 75%;">75%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="height: 25%;">25%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="height: 50%;">50%</div>
+        </div>
+        <div class="plotWrap">
+            <div class="plot" style="height: 100%;">100%</div>
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>
