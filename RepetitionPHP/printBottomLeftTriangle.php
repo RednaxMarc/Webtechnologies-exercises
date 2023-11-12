@@ -4,7 +4,6 @@
             for ($column = 1; $column <= $rows; $column ++){
                 echo "*";
             }
-            $column = 1;
             echo "\n";
         }
     }
