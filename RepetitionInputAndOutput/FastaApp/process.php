@@ -165,7 +165,6 @@
                         echo "</div>";
                     }
                 echo "</div>";
-
                 echo "<br>";
             }
         }

@@ -17,7 +17,8 @@
     <h1>Submit your FASTA</h1>
 
     <form action="visualise.php" method="POST" enctype="multipart/form-data">
-        <label>Upload a .FASTA file<input type="radio" name="selection" value="upload" id=""></Label><br>
+        
+        <label>Upload a .FASTA file<input type="radio" name="selection" value="upload" checked id=""></Label><br>
         <input type="file" name="uploaded_file" id=""><br><br>
 
         <label>Paste the FASTA sequence(s)<input type="radio" name="selection" value="paste" id=""></label><br>
@@ -25,7 +26,7 @@
 
         <?php
             foreach (['A', 'T', 'G', 'C'] as $nt){
-                echo "Pick the color for: <strong>$nt</strong>";
+                echo "Pick the color for: <strong>$nt </strong>";
                     echo "<select name=\"$nt\">";
                     echo "  <option value=\"black\">none</option>";
                     echo "  <option value=\"red\">red</option>";

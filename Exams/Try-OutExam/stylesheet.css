@@ -1,14 +1,16 @@
+body.index{
+    width: 800px;
+}
+p.index{
+    font-size: medium;
+}
 img{
     position: static;
 }
 .button{
-    font-size: 20;
-    font-weight: bold;
-    text-align: center;
-    border: solid 2px red;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    display: inline-block;
+   border: solid 2px red;
+   text-align: center;
+   display: inline-block;
+   padding-top: 1em; padding-bottom: 1em;
+   padding-left: 2em; padding-right: 2em;
 }
