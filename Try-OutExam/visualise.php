@@ -25,7 +25,7 @@
                 $contents = $_POST['textarea'];
             }
             $lines = explode("\n", $contents);
-            echo "<pre>"; print_r($lines); echo "</pre>";
+            #echo "<pre>"; print_r($lines); echo "</pre>";
             
             $sequences = [];
             
@@ -38,7 +38,7 @@
                     $sequences[$currentHeader] .= $line;
                 }
             }
-            echo "<pre>"; print_r($sequences); echo "</pre>";
+            #echo "<pre>"; print_r($sequences); echo "</pre>";
 
             foreach ($sequences as $header => $sequence){
                 echo "<strong id=\"$header\">$header</strong><br>";
@@ -65,17 +65,28 @@
                         }
                     }
                 }
-                echo "<pre>"; print_r($nucleotides); echo "</pre>";
                 foreach ($nucleotides as $i => $nucleotide){
                     if (isset($_POST['grouped']) AND $i%10 == 0 AND $i != 0){
                         echo " ";
                     }
-                    if(isset($_POST['maxperrow']) AND $index%$_POST['maxperrow']== 0 AND $index != 0){
+                    if(isset($_POST['maxperrow']) AND $i % $_POST['maxperrow']== 0 AND $i != 0){
                         echo "<br>";
                     }
                     echo $nucleotide;
                 }
                 echo "<br>";
+
+                $frequencies = [];
+                $totalNTs = 0;
+                foreach (str_split($sequence) as $nucleotide){
+                    if (!isset($frequencies[$nucleotide]) AND in_array(str_split($sequence), ['A', 'T', 'G', 'C'])){
+                        $frequencies[$nucleotide] = 0;
+                    }
+                    $frequencies[$nucleotide] ++;
+                    $totalNTs ++;
+                }
+                #print_r($frequencies); echo "<br>";
+                #echo "$totalNTs <br>";
             }
             
         }
