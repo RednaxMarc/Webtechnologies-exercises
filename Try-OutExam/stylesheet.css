@@ -1,0 +1,14 @@
+img{
+    position: static;
+}
+.button{
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px red;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    display: inline-block;
+}
