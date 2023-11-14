@@ -1,0 +1,53 @@
+body{
+    background: #EEEEEE;
+    font-family: sans-serif;
+    margin: 0em;
+    padding: 0em;
+}
+
+h1{
+    font-weight: bold;
+    text-align: center;
+    border-bottom: solid 3px orange;
+}
+
+div.content{
+    background: white;
+    margin: 0em 1em;
+    text-align: justify;
+    padding: 1em;
+}
+
+div.navbar{
+    background: #D3D3D3;
+    margin: 0em;
+    padding: 1em;
+}
+
+a.requestbutton{
+    display: block;
+    color: white;
+    background: blue;
+    padding: 1em;
+    border-radius: 5px;
+    width: fit-content;
+    border: solid black 1px;
+    font-weight: bold;
+
+    text-decoration: none;
+    margin: 1em auto;
+}
+
+a.requestbutton:hover{
+    display: block;
+    color: white;
+    background: purple;
+    padding: 1em;
+    border-radius: 5px;
+    width: fit-content;
+    border: solid black 1px;
+    font-weight: bold;
+
+    text-decoration: none;
+    margin: 1em auto;
+}

@@ -8,7 +8,7 @@
     <style>
        .A{
             font-family: monospace;
-            color: red;color
+            color: red;
         }
         .T{
             font-family: monospace;
