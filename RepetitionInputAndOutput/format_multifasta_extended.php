@@ -38,9 +38,9 @@
         </div>
 
         <div>
-            Ignore invalid nucleotides: <input type="radio" name="invalid" value="ignore" id=""><br>
-            Remove invalid nucleotides: <input type="radio" name="invalid" value="remove" id=""><br>
-            Highlight invalid nucleotides: <input type="radio" name="invalid" value="highlight" id=""><br>
+            <label><input type="radio" name="invalid" value="ignore" checked> Ignore invalid NTS</label>
+            <label><input type="radio" name="invalid" value="remove"> Remove invalid NTS</label>
+            <label><input type="radio" name="invalid" value="highlight"> Highlight invalid NTS</label>  
         </div>
         
         <input type="submit" name="submit" id="">
@@ -62,6 +62,7 @@
             $lines = explode("\n", $content);
             foreach($lines as $line){
                 $line = trim($line);
+                
                 if(preg_match('/^>/', $line)){
                     $currentheader = $line;
                 }
@@ -78,17 +79,73 @@
             }
             echo "</ul>";
 
-            // Display the sequences
+            // Display the headers
             foreach ($sequences as $header => $sequence){
                 echo "<strong id=\"$header\">$header</strong><br>";
-                
-                $nucleotides = [];
-                $frequencies =[];
-                $totalNucleotides = 0;
 
-                foreach(str_split($sequence as $nucleotide)){
-                    if ($_POST[])
+                $countA = 0;
+                $countT = 0;
+                $countG = 0;
+                $countC = 0;
+
+                // Creating an array for each sequence with each NT as a value for each option of invalid NT management   
+                $nucleotides = [];
+                
+                // string split for the sequence and go over every one by one
+                foreach(str_split($sequence) as $nucleotide){
+                    // Counting all nucleotides
+                    if ($nucleotide == 'A'){
+                        $countA ++;
+                    }
+                    if ($nucleotide == 'T'){
+                        $countT ++;
+                    }
+                    if ($nucleotide == 'G'){
+                        $countG ++;
+                    }
+                    if ($nucleotide == 'C'){
+                        $countC ++;
+                    }
+                    $countNT = strlen($sequence);
+
+                    // Defining the invalid NT management
+                    if ($_POST['invalid'] == 'ignore'){
+                        $color = $_POST[$nucleotide] ?? 'black';
+                        $nucleotides[] = "<span class='nuc' style=\"color: $color\">$nucleotide</span>";
+                    }
+                    if ($_POST['invalid'] == 'remove' AND in_array($nucleotide, ['A', 'T', 'G', 'C'])){
+                        $color = $_POST[$nucleotide] ?? 'black';
+                        $nucleotides[] = "<span class='nuc' style=\"color: $color\">$nucleotide</span>";
+                    }
+                    if ($_POST['invalid'] == 'highlight'){
+                        if (in_array($nucleotide, ['A', 'T', 'G', 'C'])){
+                            $color = $_POST[$nucleotide] ?? 'black';
+                            $nucleotides[] = "<span class='nuc' style=\"color: $color\">$nucleotide</span>";
+                        }
+                        else {
+                            $nucleotides[] = "<span class='nuc' style='background: purple'>$nucleotide</span>";
+                        }
+                    }
                 }
+                // Display the sequences by looping through nucleotides array
+                foreach ($nucleotides as $index => $nucleotide){
+                    // Logic to display only 50 nucleotides per line
+                    if($index % 50 == 0 AND $index != 0){
+                        echo "<br>";
+                    } 
+                    // Logic to group the nucleotides in groups of 10 if this 'grouped' option is selected
+                    else if(isset($_POST['grouped']) AND $index % 10 == 0 AND $index != 0){
+                        echo " ";
+                    }
+                    // Output the nucleotide
+                    echo $nucleotide;
+                }
+                echo "<br>";
+                echo "Sequence lenght: $countNT <br>";
+                echo "A: " . ($countA/$countNT)*100 . "% <br>";
+                echo "T: " . ($countT/$countNT)*100 . "% <br>";
+                echo "G: " . ($countG/$countNT)*100 . "% <br>";
+                echo "C: " . ($countC/$countNT)*100 . "% <br>";
             }
         }
     ?>
