@@ -1,0 +1,37 @@
+body{
+    background: #EEEEEE;
+}
+
+div.navbar{
+   border-bottom: solid 1px #FF1493; 
+   text-align: center;
+}
+
+div.navbar ul{
+    list-style-type: none;
+}
+
+div.navbar ul li{
+    display: inline;
+    margin: 0em 1em;
+}
+
+h1{
+    color: #FF1493;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a.button{
+    background: #FF1493;
+    padding: 0.5em;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form div{
+    margin-bottom: 1em; 
+    border-left: solid 1px #FF1493;
+    padding-left: 0.5em;
+}
